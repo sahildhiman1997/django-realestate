@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="padding-top:100px;max-width:400px;">
+    {% include 'partials/_alert.html' %}
+      <form class="form-signin" method="POST" action="{% url 'register' %}" >
+      {% csrf_token %}
+        <h2 style="display:inline-block" class="form-signin-heading">Registration</h2>
+        <a href="{% url 'login' %}" style="float:right;top:10px;position:relative;">Login Instead</a>
+        <div class="row">
+          <div class="col-6">
+            <label for="FirstName" class="sr-only">First Name</label>
+        <input type="text" id="inputFName" name='fname' class="form-control" placeholder="First name" required="True" autofocus="True">
+          </div>
+          <div class="col-6">
+            <label for="LastName" class="sr-only">Last Name</label>
+        <input type="text" id="inputLName" name="lName" class="form-control" placeholder="Last name" required="" autofocus="True">
+          </div>
+        </div>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input name="email" type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        
+        <label for="UserName" class="sr-only">Username</label>
+        <input type="text" id="UserLName" name="username" class="form-control" placeholder="Username" required="" autofocus="True">
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="pass1" class="form-control" placeholder="Password" required="">
+        <label for="confirmPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword2" name="pass2" class="form-control" placeholder="Repeat Password" required="">
+        <div class="checkbox">
+         
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      </form>
+
+    </div> <!-- /container -->
+    <style>
+      .alert{
+        position:absolute;
+        top:110px;
+      }
+    </style>
+ 
+{% endblock %}
